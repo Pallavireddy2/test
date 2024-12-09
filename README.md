@@ -11,7 +11,11 @@ The purpose of connecting Apache Spark with an external Hive metastore is to lev
 #### Here I am using open source spark with hive and setting up on Linux VM.
 
 ## Hive Installation
-1. Download Apache Hive 3.1.3 [].
+1. Download Apache Hive 3.1.3 from this [Link](https://hive.apache.org/general/downloads/).
+2. To download use command
+   ''''python
+   wget https://archive.apache.org/dist/hive/hive-3.1.3/apache-hive-3.1.3-bin.tar.gz
+   '''
 
 
 
