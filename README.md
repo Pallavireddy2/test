@@ -129,7 +129,9 @@ Refer the [Link](https://github.com/DataSturdy/FrameWorks/tree/main/Superset) to
 * In hive we can create tables but cannot perform insert, update, delete operations. So we can use Engine such as Apache Spark or Tez.
 * Check the version compatiblity between Apache Hive and Apache Spark.
 * If the table is stored as delta then the update statement works because it follows ACID properties.
-
+  ```python
+  spark-sql --master spark://10.0.0.8:9075 --conf spark.sql.catalogImplementation=hive --conf spark.sql.warehouse.dir=/home/pallavi/apache-hive-3.1.3-bin/data/warehouse --conf spark.hadoop.hive.metastore.uris=thrift://10.0.0.8:9038 --conf spark.sql.hive.metastore.jars=maven --conf spark.sql.hive.metastore.version=3.1.3 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"
+  ```
 
 
 
