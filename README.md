@@ -122,13 +122,13 @@ Refer the [Link](https://github.com/DataSturdy/FrameWorks/tree/main/Superset) to
   show tables
   ```
 
-### Now you are successfully connected with External hive-metastore where you can store metadata of the tables permanently and access this metadata using other other tools.
+### Now successfully connected with External hive-metastore where you can store metadata of the tables permanently and access this metadata using other other tools.
 
 
 ### Note
 * In hive we can create tables but cannot perform insert, update, delete operations. So we can use Engine such as Apache Spark or Tez.
 * Check the version compatiblity between Apache Hive and Apache Spark.
-  
+* If the table is stored as delta then the update statement works because it follows ACID properties.
 
 
 
