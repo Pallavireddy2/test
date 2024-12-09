@@ -21,13 +21,13 @@ The purpose of connecting Apache Spark with an external Hive metastore is to lev
    ```python
    tar -xvf apache-hive-3.1.3-bin.tar.gz
    ```
-5. Add Environment variables
+4. Add Environment variables
    ```python
     export HIVE_HOME=/home/pallavi/apache-hive-3.1.3-bin
     export HIVE_CONF_DIR=/home/pallavi/apache-hive-3.1.3-bin/conf
     export PATH=$PATH:$HIVE_HOME/bin
    ```
-7. Create folders like below inside hive
+5. Create folders like below inside hive
    ```python
       cd apache-hive-3.1.3-bin
       mkdir data
@@ -35,13 +35,12 @@ The purpose of connecting Apache Spark with an external Hive metastore is to lev
       mkdir tmp
       mkdir tmp/hive
    ```
-#### Provide read/write permissions for the above folder
-
+ 6. Provide read/write permissions for the above folder
     ```python
       chmod 777 tmp and chmod 777 tmp/hive
       chmod 777 data/warehouse
     ```
-9. Add a configuration file as hive-site.xml inside cd apache-hive-3.1.3-bin/conf
+7. Add a configuration file as hive-site.xml inside cd apache-hive-3.1.3-bin/conf
     ```python
     ///hive-site.xml
     <?xml version="1.0"?>
@@ -90,7 +89,7 @@ The purpose of connecting Apache Spark with an external Hive metastore is to lev
 
       ```
 
-7. Start the metastore service in hive
+8. Start the metastore service in hive
    ```python
     hive --service metastore -p 9038
    ```
