@@ -102,7 +102,40 @@ Refer the [Link](https://github.com/DataSturdy/FrameWorks/tree/main/Superset) to
 
 #### After setting up the spark connect it with the external hive-metastore by following the steps
 
+* Start the master and worker in spark
+  ```python
+  ./sbin/start-master.sh -h 10.0.0.8 -p 9075 --webui-port 9066
+  ./sbin/start-worker.sh spark://10.0.0.8:9075 -p 9076 --webui-port 9068
+  ```
 
+* Configure the Spark with hive and start the sparksession
+  ```python
+  spark-sql --master spark://10.0.0.8:9075 --conf spark.sql.catalogImplementation=hive --conf spark.sql.warehouse.dir=/home/pallavi/apache-hive-3.1.3-bin/data/warehouse --conf spark.hadoop.hive.metastore.uris=thrift://10.0.0.8:9038 --conf spark.sql.hive.metastore.jars=maven --conf spark.sql.hive.metastore.version=3.1.3
+  ```
+
+* After the session started you can verify by giving
+  ```python
+  Show databses
+  Create database spark_db
+  CREATE TABLE users ( id INT, name STRING, age INT );
+  Insert Into users values (1, 'Anu', 23);
+  show tables
+  ```
+
+### Now you are successfully connected with External hive-metastore where you can store metadata of the tables permanently and access this metadata using other other tools.
+
+
+### Note
+* In hive we can create tables but cannot perform insert, update, delete operations. So we can use Engine such as Apache Spark or Tez.
+* Check the version compatiblity between Apache Hive and Apache Spark.
+  
+
+
+
+
+
+
+  
 
 
 
